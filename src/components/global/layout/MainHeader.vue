@@ -3,7 +3,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item logo-wrapper">
-          <img src="/images/bjj-journal-logo.svg" alt="BJJ Journal Logo" width="48px"/>
+          <img src="/images/bjj-journal-logo.svg" alt="BJJ Journal Logo" />
         </router-link>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -14,7 +14,9 @@
       </div>
       <div class="navbar-menu">
         <div class="navbar-start">
-          <router-link to="/entry/new" class="navbar-item">New Entry</router-link>
+          <router-link to="/training/new" class="navbar-item">Training Entry</router-link>
+          <router-link to="/training" class="navbar-item">Past Training</router-link>
+          <router-link to="/dashboard" class="navbar-item">Dashboard</router-link>
         </div>
       </div>
     </nav>
@@ -32,9 +34,41 @@
   padding: 0.5rem 1rem;
 }
 
-.logo-wrapper {
+.navbar-item.logo-wrapper {
+
   img {
+    width: 42px;
+    height: 44px;
+    max-height: 75px;
     border-radius: 4px;
+  }
+}
+
+.navbar-start {
+  .navbar-item {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Patua One';
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+// Specific Overwrites
+a.navbar-item:focus-within {
+  background-color: transparent;
+}
+
+.navbar-burger {
+  height: 54px;
+
+  span {
+    height: 2px;
   }
 }
 

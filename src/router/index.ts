@@ -1,10 +1,11 @@
 import { Component } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
-import HomeView from '../components/views/HomeView.vue';
-import DashboardView from '../components/views/DashboardView.vue';
-import CreateEntryView from '../components/views/CreateEntryView.vue';
-import JournalEntryView from '../components/views/JournalEntryView.vue'
+import HomeView from '@/components/views/HomeView.vue';
+import DashboardView from '@/components/views/DashboardView.vue';
+import TrainingJournalView from '@/components/views/TrainingJournalView.vue';
+import TrainingNewView from '@/components/views/TrainingNewView.vue';
+import TrainingSingleView from '@/components/views/TrainingSingleView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,14 +21,19 @@ const router = createRouter({
       component: DashboardView
     },
     {
-      path: '/entry/new',
-      name: 'newEntry',
-      component: CreateEntryView
+      path: '/training',
+      name: 'training',
+      component: TrainingJournalView
     },
     {
-      path: '/entry/:id',
-      name: 'entry',
-      component: JournalEntryView
+      path: '/training/new',
+      name: 'training-new',
+      component: TrainingNewView
+    },
+    {
+      path: '/training/:id',
+      name: 'training-single',
+      component: TrainingSingleView
     }
   ] as Route[],
   linkActiveClass: 'active-link',
