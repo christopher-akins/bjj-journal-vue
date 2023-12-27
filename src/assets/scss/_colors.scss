@@ -1,0 +1,36 @@
+//
+// BELT COLOR VARIABLES
+//
+
+$black-belt: #2E2D2A;
+$brown-belt: #5B413A;
+$purple-belt: #635A72;
+$blue-belt: #8B9AB1;
+$white-belt: #DDDDD7;
+
+// Color Map
+
+$belt-colors: (
+  "black-belt": $black-belt,
+  "brown-belt": $brown-belt,
+  "purple-belt": $purple-belt,
+  "blue-belt": $blue-belt,
+  "white-belt": $white-belt
+);
+
+
+//
+// BELT COLOR CLASSES
+//
+// color
+// background-color
+
+@each $belt, $color in $belt-colors {
+  .#{$belt}-color {
+    color: $color;
+  }
+
+  .#{$belt}-bg {
+    background-color: $color;
+  }
+}

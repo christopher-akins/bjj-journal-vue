@@ -1,10 +1,13 @@
+import { Component } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 import HomeView from '../components/views/HomeView.vue';
 import DashboardView from '../components/views/DashboardView.vue';
+import CreateEntryView from '../components/views/CreateEntryView.vue';
+import JournalEntryView from '../components/views/JournalEntryView.vue'
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -26,8 +29,14 @@ const router = createRouter({
       name: 'entry',
       component: JournalEntryView
     }
-  ],
+  ] as Route[],
   linkActiveClass: 'active-link',
 })
 
 export default router;
+
+export interface Route {
+  path: string;
+  name?: string;
+  component: Component;
+}
