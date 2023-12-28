@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import TrainingService from '@/services/TrainingService';
 
 import MainBanner from '@/components/global/layout/MainBanner.vue';
 import TrainingCard from '@/components/journal/TrainingCard.vue';
@@ -26,7 +26,7 @@ export default {
     const trainings = ref([]);
 
     onMounted(async () => {
-      const response = await axios.get('https://my-json-server.typicode.com/christopher-akins/bjj-journal-vue/trainings');
+      const response = await TrainingService.fetchAllTrainings();
 
       trainings.value = response.data;
       console.log(response);

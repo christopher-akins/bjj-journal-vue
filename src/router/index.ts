@@ -33,6 +33,7 @@ const router = createRouter({
     {
       path: '/training/:id',
       name: 'training-single',
+      props: true,
       component: TrainingSingleView
     }
   ] as Route[],
