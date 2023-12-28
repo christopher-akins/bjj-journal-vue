@@ -32,6 +32,7 @@
 .main-header {
   width: 100%;
   padding: 0.5rem 1rem;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
 }
 
 .navbar-item.logo-wrapper {
@@ -54,7 +55,12 @@
     padding: 0.5rem 1.5rem;
 
     &:hover {
+      color: #635A72;
       background-color: transparent;
+    }
+
+    &.active-link {
+      color: #6C809D;
     }
   }
 }
