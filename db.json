@@ -1,31 +1,49 @@
 {
-  "posts": [
+  "trainings": [
     {
       "id": 1,
-      "title": "Post 1"
+      "training_date": "",
+      "partner_name": "Tom Hardy",
+      "partner_belt_rank": "purple",
+      "technique": "Reverse De la riva guard and the unstoppable sweep",
+      "rolling_partners": ["Jerry", "Larry"],
+      "personal_rating": 4,
+      "pre_training_goals": "Focus on the details and create distance when on defense",
+      "post_training_goals": "",
+      "general_notes": "Remember to dip knees toward the opponent and then lift up. Remember to cross feet at the ankles."
     },
     {
       "id": 2,
-      "title": "Post 2"
+      "training_date": "",
+      "partner_name": "Maynard from Tool",
+      "partner_belt_rank": "black",
+      "technique": "Side control and escapes",
+      "rolling_partners": ["Sarah", "Frank", "Mike"],
+      "personal_rating": 7,
+      "pre_training_goals": "",
+      "post_training_goals": "",
+      "general_notes": ""
     },
     {
       "id": 3,
-      "title": "Post 3"
+      "training_date": "",
+      "partner_name": "Craig Jones",
+      "partner_belt_rank": "black",
+      "technique": "Closed guard",
+      "rolling_partners": ["Jerry", "Larry"],
+      "personal_rating": 2,
+      "pre_training_goals": "Do whatever it takes not to get pinned",
+      "post_training_goals": "Relax a little when getting pinned",
+      "general_notes": "After opening closed guard, put left foot on opponent's right hip to lift up and throw the leg above the opponent's head."
     }
   ],
-  "comments": [
+  "users": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
-    },
-    {
-      "id": 2,
-      "body": "some comment",
-      "postId": 1
+      "first_name": "Chris",
+      "last_name": "Akins",
+      "belt_rank": "White",
+      "belt_stripes": 0
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
