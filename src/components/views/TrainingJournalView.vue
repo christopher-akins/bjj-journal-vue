@@ -2,7 +2,7 @@
     <main-banner banner-title="Training History" />
     <div class="container">
       <training-card
-        v-for="training in trainings"
+        v-for="training in trainingList"
         :key="training.id"
         :training-event="training"
       />
@@ -11,7 +11,9 @@
 
 <script lang="ts">
 import { ref, onMounted } from 'vue';
-import TrainingService from '@/services/TrainingService';
+import { storeToRefs } from 'pinia';
+import { useTrainingStore } from '@/stores/TrainingStore';
+// import TrainingService from '@/services/TrainingService';
 
 import MainBanner from '@/components/global/layout/MainBanner.vue';
 import TrainingCard from '@/components/journal/TrainingCard.vue';
@@ -23,15 +25,15 @@ export default {
   },
 
   setup() {
-    const trainings = ref([]);
+    const store = useTrainingStore();
+    const { trainingList } = storeToRefs(store);
 
-    onMounted(async () => {
-      const response = await TrainingService.fetchAllTrainings();
-      trainings.value = response.data;
+    onMounted(() => {
+      store.fetchAllTrainings();
     });
 
     return {
-      trainings
+      trainingList
     }
   }
 }
