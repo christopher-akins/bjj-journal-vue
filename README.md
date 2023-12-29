@@ -1,18 +1,12 @@
-# Vue 3 + TypeScript + Vite
+# Brazilian Jiu-Jitsu Journal in Vue
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Thanks for checking out this app. This is a personal project to help me keep track of my training and to also work on my developer skills. This repo is specifically for the app that's built with Vue 3 and Vite. I have another repo with the same kind of app built w/ React. Both will be in constant production and may never be fully "live".
 
-## Recommended IDE Setup
+## Local Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support For `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+1. Ensure you have the latest Node/NPM installed
+2. Download the repo and save anywhere on your machine
+3. `cd` into the root level of the project
+4. Run `npm install`
+5. Run `npm run dev` - This will run the build tool, Vite
+6. The output should show the url to go to (usually http://localhost:5173/)
