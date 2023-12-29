@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <h1>Hello BJJJ</h1>
-    <p>Made from Vue 3</p>
+  <div class="container">
+    <div class="home-image-wrapper has-text-centered">
+        <img src="/images/bjj-life-meme.jpg" alt="Meme about how everyone thinks BJJ has changed their lives and tell everyone">
+    </div>
   </div>
 
 </template>
@@ -10,5 +11,10 @@
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.home-image-wrapper {
+  margin: 2rem auto;
+}
+
 </style>
+
