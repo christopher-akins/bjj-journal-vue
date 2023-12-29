@@ -27,9 +27,7 @@ export default {
 
     onMounted(async () => {
       const response = await TrainingService.fetchAllTrainings();
-
       trainings.value = response.data;
-      console.log(response);
     });
 
     return {

@@ -1,7 +1,9 @@
 <template>
-  <div class="main-content">
+  <div class="main-container">
     <main-header />
-    <router-view></router-view>
+    <div class="main-wrapper">
+      <router-view></router-view>
+    </div>
     <main-footer />
   </div>
 </template>
@@ -10,13 +12,3 @@
 import MainHeader from '@/components/global/layout/MainHeader.vue';
 import MainFooter from '@/components/global/layout/MainFooter.vue';
 </script>
-
-<style lang="scss">
-
-.main-content {
-  width: 100%;
-  display: block;
-  position: relative;
-}
-
-</style>

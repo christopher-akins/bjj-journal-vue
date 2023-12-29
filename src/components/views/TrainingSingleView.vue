@@ -1,7 +1,7 @@
 <template>
   <div v-if="training">
     <p>{{ training.id }}</p>
-    <p>{{  training.partnerName }}</p>
+    <p>{{ training.partnerName }}</p>
   </div>
 </template>
 

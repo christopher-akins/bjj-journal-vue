@@ -1,5 +1,7 @@
 <template>
-  <router-link :to="{ name: 'training-single', params: { id: trainingEvent.id } }">
+  <router-link
+  :to="{ name: 'training-single', params: { id: trainingEvent.id } }"
+  class="training-card-wrapper">
     <div class="card">
       <div class="card-content">
         <div class="content">
