@@ -38,6 +38,19 @@
       "preTrainingGoals": "Do whatever it takes not to get pinned",
       "postTrainingGoals": "Relax a little when getting pinned",
       "generalNotes": "After opening closed guard, put left foot on opponent's right hip to lift up and throw the leg above the opponent's head."
+    },
+    {
+      "id": 4,
+      "trainingDate": "",
+      "trainingType": "No-Gi",
+      "partnerName": "Anthony Bourdain",
+      "partnerBeltRank": "blue",
+      "technique": "Butterfly guard",
+      "rollingPartners": ["Jerry", "Larry"],
+      "personalRating": 2,
+      "preTrainingGoals": "",
+      "postTrainingGoals": "Instead of pushing, simply frame and not use muscles to try to create distance",
+      "generalNotes": "Force opponent's head and arm to the opposite the foot is hooked to the opponent's inner thigh. This ensures they don't try to post on the side you're trying to sweep"
     }
   ],
   "users": [

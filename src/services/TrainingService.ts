@@ -10,11 +10,11 @@ const axiosClient = axios.create({
 });
 
 export default {
-  fetchAllTrainings() {
+  fetchAllTrainings(): Promise<Trainings[]> {
     return axiosClient.get('/trainings');
   },
 
-  fetchSingleTraining(id: string) {
+  fetchSingleTraining(id: string): Promise<Trainings> {
     const endpoint = `/trainings/${id}`;
     return axiosClient.get(endpoint);
   },

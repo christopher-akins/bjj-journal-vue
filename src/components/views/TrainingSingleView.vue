@@ -2,6 +2,9 @@
   <div v-if="training">
     <p>{{ training.id }}</p>
     <p>{{ training.partnerName }}</p>
+
+    <p><span>Belt Rank: </span>{{ training.partnerBeltRank }}</p>
+
   </div>
 </template>
 
@@ -9,10 +12,11 @@
 import { ref, onMounted } from 'vue';
 import TrainingService from '@/services/TrainingService';
 
-const training = ref(null);
+const training = ref< null | Trainings>(null);
 
 const props = defineProps({
   id: {
+    type: String,
     required: true
   }
 });

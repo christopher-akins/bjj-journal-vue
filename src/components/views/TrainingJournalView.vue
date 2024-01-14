@@ -12,8 +12,8 @@
 <script lang="ts">
 import { ref, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
+// @ts-ignore
 import { useTrainingStore } from '@/stores/TrainingStore';
-// import TrainingService from '@/services/TrainingService';
 
 import MainBanner from '@/components/global/layout/MainBanner.vue';
 import TrainingCard from '@/components/journal/TrainingCard.vue';
