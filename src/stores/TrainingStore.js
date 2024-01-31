@@ -1,18 +1,22 @@
 import { defineStore } from 'pinia';
+import { Training } from '../types/Training';
 import TrainingService from '../services/TrainingService';
 
 export const useTrainingStore = defineStore('TrainingStore', {
-  state: () => ({
+  state: (): {
+    trainingList: Training[],
+    training: Training | null,
+  } => ({
     trainingList: [],
-    training: {},
+    training: null,
   }),
 
   actions: {
-    addTraining(entry) {
+    addTraining(entry: Training) {
       this.trainingList.push(entry);
     },
 
-    deleteTraining(id) {
+    deleteTraining(id: number) {
       this.trainingList = this.trainingList.filter((entry) => {
         return entry.id !== id;
       });
