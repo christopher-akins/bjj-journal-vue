@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Training } from '@/types/Training';
 
 const axiosClient = axios.create({
   baseURL: 'https://my-json-server.typicode.com/christopher-akins/bjj-journal-vue',
@@ -10,11 +11,11 @@ const axiosClient = axios.create({
 });
 
 export default {
-  fetchAllTrainings(): Promise<Trainings[]> {
+  fetchAllTrainings(): Promise<Training[]> {
     return axiosClient.get('/trainings');
   },
 
-  fetchSingleTraining(id: string): Promise<Trainings> {
+  fetchSingleTraining(id: string): Promise<Training> {
     const endpoint = `/trainings/${id}`;
     return axiosClient.get(endpoint);
   },
