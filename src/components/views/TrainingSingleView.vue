@@ -12,7 +12,7 @@
 import { ref, onMounted } from 'vue';
 import TrainingService from '@/services/TrainingService';
 
-const training = ref< null | Trainings>(null);
+const training = ref< null | Training>(null);
 
 const props = defineProps({
   id: {
