@@ -31,7 +31,7 @@
 import { reactive } from 'vue';
 import MainBanner from '@/components/global/layout/MainBanner.vue';
 import BaseInput from '@/components/global/inputs/BaseInput.vue';
-import TextArea from "@/components/global/inputs/TextArea.vue";
+import TextArea from '@/components/global/inputs/TextArea.vue';
 
 const formValues = reactive({
   trainingPartner: '',

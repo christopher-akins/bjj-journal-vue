@@ -12,7 +12,7 @@ const props = defineProps({
   bannerTitle: {
     type: String,
     default: '404',
-  }
+  },
 });
 
 </script>

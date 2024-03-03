@@ -10,9 +10,9 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
-// @ts-ignore
+// @ts-expectignore
 import { useTrainingStore } from '@/stores/TrainingStore';
 
 import MainBanner from '@/components/global/layout/MainBanner.vue';
@@ -33,10 +33,10 @@ export default {
     });
 
     return {
-      trainingList
-    }
-  }
-}
+      trainingList,
+    };
+  },
+};
 </script>
 
 <style scoped lang="scss">

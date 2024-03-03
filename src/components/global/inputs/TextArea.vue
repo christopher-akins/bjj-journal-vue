@@ -1,6 +1,9 @@
 <template>
   <div class="field">
-    <label :for="inputId" class="label">
+    <label
+      :for="inputId"
+      class="label"
+    >
       {{ label }}
     </label>
     <div class="control">
@@ -21,12 +24,12 @@ export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: '',
     },
 
     inputId: {
       type: String,
-      default: ''
+      default: '',
     },
 
     modelValue: {
@@ -35,6 +38,5 @@ export default {
     },
   },
 
-
-}
+};
 </script>

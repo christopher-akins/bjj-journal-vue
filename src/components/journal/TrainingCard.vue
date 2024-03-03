@@ -21,7 +21,7 @@ export default {
     trainingEvent: {
       type: Object,
       required: true,
-    }
+    },
   },
 
   setup(props) {
@@ -31,9 +31,9 @@ export default {
   computed: {
     beltClass() {
       return `${this.trainingEvent.partnerBeltRank}-belt`;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>

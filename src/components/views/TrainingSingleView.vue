@@ -17,8 +17,8 @@ const training = ref< null | Training>(null);
 const props = defineProps({
   id: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 onMounted(async () => {
@@ -26,7 +26,6 @@ onMounted(async () => {
 
   training.value = response.data;
 });
-
 
 </script>
 

@@ -1,0 +1,85 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "google",
+    "plugin:vue/vue3-essential",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "extraFileExtensions": [
+      "vue"
+    ],
+    "parser": "@typescript-eslint/parser"
+  },
+  "rules": {
+    "vue/no-use-v-if-with-v-for": "warn"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.{js,ts,vue}"
+      ],
+      "rules": {
+        "max-len": [
+          "error",
+          {
+            "code": 160,
+            "ignorePattern": "^import .*"
+          }
+        ],
+        "indent": [
+          "error",
+          2
+        ],
+        "no-multiple-empty-lines": [
+          "error",
+          {
+            "max": 1
+          }
+        ],
+        "padded-blocks": [
+          "error",
+          {
+            "classes": "always"
+          }
+        ],
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "space-before-function-paren": [
+          "warn",
+          {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "always"
+          }
+        ],
+        "comma-dangle": [
+          "error",
+          "always-multiline"
+        ],
+        "padding-line-between-statements": [
+          "error",
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "return"
+          }
+        ],
+        "brace-style": [
+          "error",
+          "stroustrup"
+        ]
+      }
+    }
+  ]
+}

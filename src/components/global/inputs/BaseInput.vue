@@ -1,6 +1,10 @@
 <template>
   <div class="field">
-    <label :for="inputId" class="label">
+    <label
+      v-if="label"
+      :for="inputId"
+      class="label"
+    >
       {{ label }}
     </label>
     <div class="control">
@@ -17,17 +21,16 @@
 </template>
 
 <script lang="ts">
-
 export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: '',
     },
 
     inputId: {
       type: String,
-      default: ''
+      default: '',
     },
 
     modelValue: {
@@ -37,10 +40,9 @@ export default {
 
     inputType: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
   },
 
-
-}
+};
 </script>
