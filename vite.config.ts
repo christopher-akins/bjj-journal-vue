@@ -1,6 +1,9 @@
+/* eslint-disable spaced-comment */
 /// <reference types="vitest" />
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+/// <reference types="vite/client" />
+
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,9 +12,9 @@ export default defineConfig({
     alias: {
       '~bulma': 'node_modules/bulma',
       '@': '/src',
-    }
+    },
   },
   test: {
-    environment: "jsdom",
+    environment: 'jsdom',
   },
-})
+});
