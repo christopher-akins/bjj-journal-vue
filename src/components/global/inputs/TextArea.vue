@@ -1,6 +1,7 @@
 <template>
   <div class="field">
     <label
+      v-if="label"
       :for="inputId"
       class="label"
     >
