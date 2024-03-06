@@ -2,25 +2,28 @@
   <div class="field">
     <label
       v-if="label"
-      :for="inputId"
       class="label"
     >
       {{ label }}
     </label>
     <div class="control">
-      <input
-        :placeholder="label"
-        :type="inputType"
-        class="input"
-        :id="inputId"
-        :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-      />
+      <div class="select">
+        <select>
+          <option
+            v-for="(option, index) in selectOptions"
+            :key="`${option}-${index}`"
+            :value="option"
+          >
+            {{ option }}
+          </option>
+        </select>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+
 export default {
   props: {
     label: {
@@ -38,13 +41,18 @@ export default {
       default: '',
     },
 
-    inputType: {
-      type: String,
-      default: 'text',
+    selectOptions: {
+      type: Array,
+      required: true,
     },
   },
 
-  emits: ['update:modelValue'],
-
 };
 </script>
+
+<style lang="scss">
+select,
+.select {
+  width: 100%;
+}
+</style>

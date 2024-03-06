@@ -1,5 +1,5 @@
 <template>
-    <main-banner banner-title="Enter New Training Entry" />
+    <main-banner banner-title="Enter New Training" />
     <div class="container is-max-desktop form-container">
       <form>
         <base-input
@@ -7,9 +7,10 @@
           label="Training Partner"
           v-model:modelValue="formValues.trainingPartner"
         />
-        <base-input
+        <base-select
           input-id="partnerBeltRank"
           label="Partner's Belt Rank"
+          :select-options="Object.values(BeltRank)"
           v-model:modelValue="formValues.partnerBeltRank"
         />
         <base-input
@@ -28,16 +29,22 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
 import MainBanner from '@/components/global/layout/MainBanner.vue';
 import BaseInput from '@/components/global/inputs/BaseInput.vue';
+import BaseSelect from '@/components/global/inputs/BaseSelect.vue';
 import TextArea from '@/components/global/inputs/TextArea.vue';
+import { BeltRank } from '@/types/BeltRank';
 
 const formValues = reactive({
   trainingPartner: '',
   partnerBeltRank: '',
   techniquePosition: '',
   technicalNotes: '',
+});
+
+onMounted(() => {
+  console.log(Object.values(BeltRank));
 });
 
 </script>
