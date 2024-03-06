@@ -12,7 +12,7 @@
 <script lang="ts">
 import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
-// @ts-expectignore
+
 import { useTrainingStore } from '@/stores/TrainingStore';
 
 import MainBanner from '@/components/global/layout/MainBanner.vue';

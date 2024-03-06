@@ -2,7 +2,7 @@ import { BeltRank } from './BeltRank';
 import { ClassLevel } from './ClassLevel';
 import { TrainingType } from './TrainingType';
 
-interface Training {
+export interface Training {
   id: number,
   partnerName: string,
   instructorName: string,
