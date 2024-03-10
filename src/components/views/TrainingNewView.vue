@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted } from 'vue';
+import { reactive } from 'vue';
 import MainBanner from '@/components/global/layout/MainBanner.vue';
 import BaseInput from '@/components/global/inputs/BaseInput.vue';
 import BaseSelect from '@/components/global/inputs/BaseSelect.vue';
@@ -41,10 +41,6 @@ const formValues = reactive({
   partnerBeltRank: '',
   techniquePosition: '',
   technicalNotes: '',
-});
-
-onMounted(() => {
-  console.log(Object.values(BeltRank));
 });
 
 </script>

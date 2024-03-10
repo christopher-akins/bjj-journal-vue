@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 
@@ -18,23 +18,11 @@ import { useTrainingStore } from '@/stores/TrainingStore';
 import MainBanner from '@/components/global/layout/MainBanner.vue';
 import TrainingCard from '@/components/journal/TrainingCard.vue';
 
-export default {
-  components: {
-    MainBanner,
-    TrainingCard,
-  },
+const store = useTrainingStore();
+const { trainingList } = storeToRefs(store);
 
-  setup() {
-    const store = useTrainingStore();
-    const { trainingList } = storeToRefs(store);
+onMounted(() => {
+  store.fetchAllTrainings();
+});
 
-    onMounted(() => {
-      store.fetchAllTrainings();
-    });
-
-    return {
-      trainingList,
-    };
-  },
-};
 </script>
