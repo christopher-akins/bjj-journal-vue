@@ -32,7 +32,6 @@
 .main-header {
   width: 100%;
   padding: 0.5rem 1rem;
-  box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
 }
 
 .navbar-item.logo-wrapper {
