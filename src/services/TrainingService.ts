@@ -11,8 +11,10 @@ const axiosClient = axios.create({
 });
 
 export default {
-  fetchAllTrainings(): Promise<Training[]> {
-    return axiosClient.get('/trainings');
+  async fetchAllTrainings(): Promise<Training[]> {
+    const response = await axiosClient.get<Training[]>('/trainings');
+
+    return response.data;
   },
 
   async fetchSingleTraining(id: string): Promise<Training> {

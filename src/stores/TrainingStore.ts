@@ -25,12 +25,12 @@ export const useTrainingStore = defineStore('TrainingStore', {
     fetchAllTrainings() {
       TrainingService.fetchAllTrainings()
         .then((response) => {
-          // this is where the state is mutated
-          this.trainingList = response.data;
+
+          this.trainingList = response;
         })
         .catch((error) => {
           console.log(error);
         });
-    }
-  }
+    },
+  },
 });

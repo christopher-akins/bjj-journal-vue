@@ -24,9 +24,9 @@ export default {
     },
   },
 
-  setup(props) {
-    console.log(props);
-  },
+  // setup(props) {
+  //   console.log(props.trainingEvent);
+  // },
 
   computed: {
     beltClass() {
