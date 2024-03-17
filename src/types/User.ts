@@ -1,7 +1,8 @@
 import { BeltRank } from './BeltRank';
 
-interface User {
+export interface User {
   id: number,
+  username: string,
   firstName: string,
   lastName: string,
   email: string,
