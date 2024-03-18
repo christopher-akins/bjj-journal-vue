@@ -12,7 +12,7 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
-      <div class="navbar-menu">
+      <div class="navbar-menu" v-if="!$route.meta.hideHeader">
         <div class="navbar-start">
           <router-link to="/training/new" class="navbar-item">Training Entry</router-link>
           <router-link to="/training" class="navbar-item">Past Training</router-link>
@@ -22,6 +22,7 @@
     </nav>
   </div>
 </template>
+qE6jf9*rk$8p5de6
 
 <script setup lang="ts">
 
