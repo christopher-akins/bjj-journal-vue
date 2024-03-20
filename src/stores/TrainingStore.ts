@@ -25,7 +25,6 @@ export const useTrainingStore = defineStore('TrainingStore', {
     fetchAllTrainings() {
       TrainingService.fetchAllTrainings()
         .then((response) => {
-
           this.trainingList = response;
         })
         .catch((error) => {
