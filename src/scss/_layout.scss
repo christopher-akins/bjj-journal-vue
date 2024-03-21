@@ -14,10 +14,10 @@ body,
   min-height: 100%;
   display: block;
   position: relative;
+  background-color: $body-bg-color;
 }
 
 .main-banner {
-  background-color: $blue-belt;
   width: $banner-width;
   height: $banner-height;
   display: flex;
@@ -25,7 +25,6 @@ body,
 
   h1 {
     padding: 2rem 1rem;
-    color: #EEE;
     text-align: center;
     text-transform: uppercase;
   }

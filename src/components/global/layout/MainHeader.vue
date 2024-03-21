@@ -33,15 +33,17 @@ qE6jf9*rk$8p5de6
 .main-header {
   width: 100%;
   padding: 0.5rem 1rem;
+
+  .navbar {
+    background-color: transparent;
+  }
 }
 
 .navbar-item.logo-wrapper {
 
   img {
-    width: 42px;
-    height: 44px;
-    max-height: 75px;
-    border-radius: 4px;
+    width: 60px;
+    max-height: none;
   }
 }
 
