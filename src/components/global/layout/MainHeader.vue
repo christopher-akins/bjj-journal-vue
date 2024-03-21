@@ -22,7 +22,6 @@
     </nav>
   </div>
 </template>
-qE6jf9*rk$8p5de6
 
 <script setup lang="ts">
 
@@ -42,7 +41,7 @@ qE6jf9*rk$8p5de6
 .navbar-item.logo-wrapper {
 
   img {
-    width: 60px;
+    width: 150px;
     max-height: none;
   }
 }
