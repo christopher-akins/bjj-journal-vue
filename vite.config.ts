@@ -10,7 +10,6 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '~bulma': 'node_modules/bulma',
       '@': '/src',
     },
   },
