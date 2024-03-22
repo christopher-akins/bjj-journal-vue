@@ -1,20 +1,30 @@
 <template>
   <fieldset>
-    <label
-      v-if="label"
-      class="label"
-    >
+    <label v-if="label">
       {{ label }}
     </label>
 
     <div class="select">
       <select
-        :modelValue="modelValue"
+        v-bind="{
+          ...$attrs,
+          onChange: $event => $emit('update:modelValue', ($event.target as HTMLInputElement).value),
+        }"
+        :value="modelValue"
+        :class="placeholderStyle"
       >
+        <option
+          value=""
+          disabled
+          selected
+        >
+          Select an option
+        </option>
         <option
           v-for="(option, index) in selectOptions"
           :key="`${option}-${index}`"
           :value="option"
+          :selected="option === modelValue"
         >
           {{ option }}
         </option>
@@ -48,9 +58,17 @@ export default {
     },
   },
 
+  computed: {
+    placeholderStyle(): string {
+      return this.modelValue === '' ? 'placeholder' : '';
+    },
+  },
+
 };
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+  select.placeholder {
+    color: red;
+  }
 </style>

@@ -3,14 +3,12 @@
     <label
       v-if="label"
       :for="inputId"
-      class="label"
     >
       {{ label }}
     </label>
 
     <textarea
       :placeholder="label"
-      class="textarea"
       :id="inputId"
       :value="modelValue"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
@@ -40,3 +38,9 @@ export default {
 
 };
 </script>
+
+<style lang="scss" scoped>
+  textarea::placeholder {
+    opacity: 0.5;
+  }
+</style>

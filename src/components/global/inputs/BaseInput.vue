@@ -47,3 +47,9 @@ export default {
 
 };
 </script>
+
+<style lang="scss" scoped>
+  input::placeholder {
+    opacity: 0.5;
+  }
+</style>
