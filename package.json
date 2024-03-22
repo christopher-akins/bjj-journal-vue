@@ -10,6 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@picocss/pico": "^2.0.6",
     "axios": "^1.6.3",
     "pinia": "^2.1.7",
     "vue": "^3.3.11",

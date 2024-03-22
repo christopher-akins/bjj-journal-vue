@@ -1,7 +1,12 @@
-@import "./scss/variables";
-@import "./scss/colors";
-@import "./scss/typography";
-@import "./scss/layout";
+@use '@picocss/pico/scss';
 
-// Trainings
-@import "./scss/trainingCards";
+// Global Styles
+@use './scss/typography';
+@use './scss/layout';
+
+// Components
+@use './scss/components';
+// testing this
+body {
+  background-color: red;
+}
