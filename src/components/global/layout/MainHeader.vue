@@ -5,12 +5,6 @@
         <router-link to="/" class="navbar-item logo-wrapper">
           <img src="/images/bjj-journal-logo.svg" alt="BJJ Journal Logo" />
         </router-link>
-
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
       </div>
       <div class="navbar-menu" v-if="!$route.meta.hideHeader">
         <div class="navbar-start">

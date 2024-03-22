@@ -1,5 +1,5 @@
 <template>
-  <div class="field">
+  <fieldset>
     <label
       v-if="label"
       :for="inputId"
@@ -7,17 +7,16 @@
     >
       {{ label }}
     </label>
-    <div class="control">
-      <input
-        :placeholder="label"
-        :type="inputType"
-        class="input"
-        :id="inputId"
-        :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-      />
-    </div>
-  </div>
+
+    <input
+      :placeholder="label"
+      :type="inputType"
+      class="input"
+      :id="inputId"
+      :value="modelValue"
+      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    />
+  </fieldset>
 </template>
 
 <script lang="ts">
