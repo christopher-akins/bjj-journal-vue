@@ -3,13 +3,14 @@
     <label v-if="label">
       {{ label }}
     </label>
-
+{{ console.log($attrs) }}
     <div class="select">
       <select
         v-bind="{
           ...$attrs,
           onChange: $event => $emit('update:modelValue', ($event.target as HTMLInputElement).value),
         }"
+        :id="inputId"
         :value="modelValue"
         :class="placeholderStyle"
       >
@@ -69,6 +70,7 @@ export default {
 
 <style lang="scss" scoped>
   select.placeholder {
-    color: red;
+    color: var(--pico-form-element-placeholder-color);
+    opacity: 0.5;
   }
 </style>
