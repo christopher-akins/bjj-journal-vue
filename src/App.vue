@@ -1,14 +1,14 @@
 <template>
   <div class="main-container">
-    <main-header />
+    <sidebar-navigation />
     <div class="main-wrapper">
       <router-view></router-view>
+      <main-footer />
     </div>
-    <main-footer />
   </div>
 </template>
 
 <script setup lang="ts">
-import MainHeader from '@/components/global/layout/MainHeader.vue';
+import SidebarNavigation from '@/components/global/layout/SidebarNavigation.vue';
 import MainFooter from '@/components/global/layout/MainFooter.vue';
 </script>
