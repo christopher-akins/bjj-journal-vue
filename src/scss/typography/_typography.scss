@@ -12,8 +12,10 @@ h1,
 h2,
 h3,
 h4 {
+    color: $primary-font-color;
     font-family: Poppins, Georgia, 'Times New Roman', Times, serif;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 h1 {
