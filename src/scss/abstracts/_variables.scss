@@ -7,3 +7,8 @@ $primary-font-color: rgb(32, 40, 46);
 // Banner Variables
 $banner-height: 175px;
 $banner-width: 100%;
+
+:root {
+  --body-bg-color-dark: #{$body-bg-color-dark};
+  --primary-font-color: #{$primary-font-color};
+}

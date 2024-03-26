@@ -34,3 +34,8 @@ $belt-colors: (
     background-color: $color;
   }
 }
+
+:root {
+  --black-belt: #{$black-belt};
+  --purple-belt: #{$purple-belt};
+}
