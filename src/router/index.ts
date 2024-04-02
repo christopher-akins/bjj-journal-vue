@@ -6,6 +6,7 @@ import DashboardView from '@/components/views/DashboardView.vue';
 import TrainingJournalView from '@/components/views/TrainingJournalView.vue';
 import TrainingNewView from '@/components/views/TrainingNewView.vue';
 import TrainingSingleView from '@/components/views/TrainingSingleView.vue';
+import ProfileView from '@/components/views/ProfileView.vue';
 import RegisterView from '@/components/views/RegisterView.vue';
 import LoginView from '@/components/views/LoginView.vue';
 
@@ -32,6 +33,11 @@ const router = createRouter({
       meta: {
         hideHeader: true,
       },
+    },
+    {
+      path: '/profile/:id',
+      name: 'profile',
+      component: ProfileView,
     },
     {
       path: '/dashboard',

@@ -9,6 +9,7 @@ $banner-height: 175px;
 $banner-width: 100%;
 
 :root {
+  --body-bg-color: #{$body-bg-color};
   --body-bg-color-dark: #{$body-bg-color-dark};
   --primary-font-color: #{$primary-font-color};
 }
