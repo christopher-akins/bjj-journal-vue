@@ -79,6 +79,7 @@ console.log(TRAINING_TYPES);
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  padding: 1rem;
 
   @media (min-width: 576px) {
     grid-template-columns: 1fr;

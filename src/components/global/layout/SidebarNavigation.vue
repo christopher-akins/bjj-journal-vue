@@ -1,23 +1,18 @@
 <template>
-  <div 
+  <div
     class="sidebar-container"
     :class="!isSidebarExpanded ? 'collapsed' : ''"
   >
     <div class="logo-wrapper">
-      <div
-        class="sidebar-slider-button"
-        @click="toggleSidebar"
-      >
-        <FontAwesomeIcon :icon="isSidebarExpanded ? faChevronLeft : faChevronRight" />
-      </div>
       <router-link to="/">
-        <img :src="isSidebarExpanded ? `/images/bjj-journal-logo.svg` : `/images/bjj-journal-logo-light.svg`" alt="BJJ Journal Logo" />
+        <img :src="svgSrcValue" />
       </router-link>
     </div>
+
     <div class="nav-links-wrapper">
       <router-link
         v-for="link in sidebarLinks"
-        :to="link.toName"
+        :to="{ name: link.toName }"
         :key="link.toName"
         class="navbar-item"
       >
@@ -25,17 +20,25 @@
         <span v-if="isSidebarExpanded">{{ link.title }}</span>
       </router-link>
     </div>
+
     <div class="profile-links-wrapper">
-      <router-link to="profile" class="navbar-item">
+      <router-link :to="{ name: 'profile', params: { username: 'cakins' } }" class="navbar-item">
         <FontAwesomeIcon :icon=faUser class="menu-icon" />
         <span v-if="isSidebarExpanded">Profile</span>
       </router-link>
+    </div>
+
+    <div
+      class="sidebar-slider-button"
+      @click="toggleSidebar"
+    >
+      <FontAwesomeIcon :icon="isSidebarExpanded ? faChevronLeft : faChevronRight" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faUser,
@@ -65,6 +68,14 @@ const sidebarLinks = [
 ];
 
 const isSidebarExpanded = ref(true);
+
+const svgSrcValue = computed(() => {
+  if (isSidebarExpanded.value) {
+    return '/images/bjj-journal-logo.svg';
+  }
+
+  return '/images/bjj-journal-logo-light.svg';
+});
 
 const toggleSidebar = () => {
   isSidebarExpanded.value = !isSidebarExpanded.value;
@@ -120,7 +131,7 @@ const toggleSidebar = () => {
   }
 }
 
-.collapsed {
+.sidebar-container.collapsed {
   .navbar-item {
     color: var(--body-bg-color);
 
@@ -130,6 +141,8 @@ const toggleSidebar = () => {
   }
 
   .logo-wrapper {
+    text-align: center;
+
     img {
       width: 45px;
     }
@@ -140,6 +153,7 @@ const toggleSidebar = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
   }
 }
 </style>

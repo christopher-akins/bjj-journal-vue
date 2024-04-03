@@ -21,9 +21,9 @@ body,
     min-height: 100vh;
     padding: 1rem;
     border-right: 5px solid $primary-font-color;
-    margin-right: 0.5rem;
-    transition: all 0.3s ease-in;
-
+    margin-right: 1rem;
+    transition: all 0.25s ease-in;
+    
     &.collapsed {
       width: 80px;
       padding: 1rem 0.5rem;
