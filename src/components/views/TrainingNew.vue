@@ -1,60 +1,37 @@
 <template>
   <main-banner banner-title="Select Training Type" />
-    <div class="container">
-      <div class="training-card-container">
-        <router-link
-            v-for="trainingType in TRAINING_TYPES"
-            :key="trainingType"
-            :to="`/training/new/${trainingType.toLowerCase()}`"
-            custom
-            v-slot="{ navigate }"
+  <div class="container">
+    <div class="training-card-container">
+      <div
+          v-for="trainingType in TRAINING_TYPES"
+          :key="trainingType"
+        >
+          <article
+            class="training-type-card"
+            @click="showForm(trainingType)"
           >
-            <article
-              class="training-type-card"
-              @click="navigate"
-            >
-              {{ trainingType }}
-            </article>
-          </router-link>
-      </div>
+            {{ trainingType }}
+          </article>
+        </div>
     </div>
-    <!--
-      <div class="container form-container">
-        <form>
-          <base-input
-            input-id="trainingPartner"
-            label="Training Partner"
-            v-model:modelValue="formValues.trainingPartner"
-          />
-          <base-select
-            input-id="partnerBeltRank"
-            label="Partner's Belt Rank"
-            :select-options="Object.values(BeltRank)"
-            v-model:modelValue="formValues.partnerBeltRank"
-          />
-          <base-input
-            input-id="techniquePosition"
-            label="Technique and/or Position"
-            v-model:modelValue="formValues.techniquePosition"
-          />
-          <text-area
-            input-id="technicalNotes"
-            label="Technical Notes:"
-            v-model:modelValue="formValues.technicalNotes"
-          />
-        </form>
-      </div>
-    -->
+    <!-- <component :is="selectedForm" /> -->
+  </div>
 
 </template>
 
 <script setup lang="ts">
-// import { reactive } from 'vue';
+import { ref } from 'vue';
 import MainBanner from '@/components/global/layout/MainBanner.vue';
-import { TRAINING_TYPES } from '@/types/TrainingType';
+import { TRAINING_TYPES, TrainingType } from '@/types/TrainingType';
 
 console.log(TRAINING_TYPES);
 
+const selectedForm = ref('');
+
+const showForm = (type: TrainingType) => {
+  console.log(type.toLowerCase());
+  selectedForm.value = type.toLowerCase();
+};
 // import BaseInput from '@/components/global/inputs/BaseInput.vue';
 // import BaseSelect from '@/components/global/inputs/BaseSelect.vue';
 // import TextArea from '@/components/global/inputs/TextArea.vue';
