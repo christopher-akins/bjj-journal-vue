@@ -1,8 +1,6 @@
 <template>
-  <router-link
-    :to="{ name: 'training-single', params: { id: trainingEvent.id } }"
-    :class="['training-card-wrapper', beltClass]"
-  >
+  <router-link :to="{ name: 'TrainingSingle', params: { id: trainingEvent.id } }"
+    :class="['training-card-wrapper', beltClass]">
     <div class="card">
       <div class="card-content">
         <div class="date-wrapper">{{ trainingEvent.trainingDate }}</div>
@@ -36,5 +34,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

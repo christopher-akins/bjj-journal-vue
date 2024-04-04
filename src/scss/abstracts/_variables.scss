@@ -1,14 +1,18 @@
 // Body & Main-Container
-$body-bg-color: rgb(241, 239, 235);
-$body-bg-color-dark: rgb(32, 40, 46);
+$primary-dark: rgb(32, 40, 46);
+$primary-light: rgb(241, 239, 235);
+$body-bg-color: $primary-light;
+$body-bg-color-dark: $primary-dark;
 
-$primary-font-color: rgb(32, 40, 46);
+$primary-font-color: $primary-dark;
 
 // Banner Variables
 $banner-height: 175px;
 $banner-width: 100%;
 
 :root {
+  --primary-dark: #{$primary-dark};
+  --primary-light: #{$primary-light};
   --body-bg-color: #{$body-bg-color};
   --body-bg-color-dark: #{$body-bg-color-dark};
   --primary-font-color: #{$primary-font-color};

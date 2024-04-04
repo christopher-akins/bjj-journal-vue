@@ -51,12 +51,12 @@ import {
 
 const sidebarLinks = [
   {
-    toName: 'training-new',
+    toName: 'TrainingNew',
     icon: faPencil,
     title: 'New Training',
   },
   {
-    toName: 'training',
+    toName: 'Training',
     icon: faPersonRunning,
     title: 'Past Training',
   },
@@ -84,8 +84,22 @@ const toggleSidebar = () => {
 </script>
 
 <style scoped lang="scss">
-// For .sidebar-container layout specifics see global styles in
-// `src/scss/layout/_main.scss`
+.sidebar-container {
+  position: relative;
+  width: 280px;
+  height: 100%;
+  min-height: 100vh;
+  padding: 1rem;
+  border-right: 5px solid var(--primary-dark);
+  margin-right: 1rem;
+  transition: all 0.25s ease-in;
+
+  &.collapsed {
+    width: 80px;
+    padding: 1rem 0.5rem;
+    background-color: var(--body-bg-color-dark);
+  }
+}
 
 .sidebar-slider-button {
   display: flex;
@@ -96,7 +110,7 @@ const toggleSidebar = () => {
   right: -21px;
   width: 35px;
   height: 35px;
-  border: 5px solid var(--primary-font-color);
+  border: 5px solid var(--primary-dark);
   border-radius: 50%;
   background-color: var(--body-bg-color);
   padding: 0.25rem;
@@ -133,7 +147,7 @@ const toggleSidebar = () => {
 
 .sidebar-container.collapsed {
   .navbar-item {
-    color: var(--body-bg-color);
+    color: var(--primary-light);
 
     .menu-icon {
       padding-right: 0px;
