@@ -1,14 +1,5 @@
-import axios from 'axios';
+import axiosClient from '@/services/CreateAxiosClient';
 import { Training } from '@/types/Training';
-
-const axiosClient = axios.create({
-  baseURL: 'https://my-json-server.typicode.com/christopher-akins/bjj-journal-vue',
-  withCredentials: false,
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-});
 
 export default {
   async fetchAllTrainings(): Promise<Training[]> {

@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faUser,
@@ -77,6 +77,18 @@ const svgSrcValue = computed(() => {
   return '/images/bjj-journal-logo-light.svg';
 });
 
+onMounted(() => {
+  window.addEventListener('resize', updateSidebar);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateSidebar);
+});
+
+const updateSidebar = () => {
+  isSidebarExpanded.value = window.innerWidth > 768;
+};
+
 const toggleSidebar = () => {
   isSidebarExpanded.value = !isSidebarExpanded.value;
 };
@@ -98,6 +110,13 @@ const toggleSidebar = () => {
     width: 80px;
     padding: 1rem 0.5rem;
     background-color: var(--body-bg-color-dark);
+
+    @media screen and (max-width: 430px) {
+      width: 60px;
+      padding: 0.75rem 0.25rem;
+      border-right: none;
+      margin-right: 0.25rem;
+    }
   }
 }
 
@@ -106,20 +125,29 @@ const toggleSidebar = () => {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 118px;
-  right: -21px;
-  width: 35px;
-  height: 35px;
+  top: 90px;
+  right: -20px;
+  width: 33px;
+  height: 33px;
   border: 5px solid var(--primary-dark);
   border-radius: 50%;
   background-color: var(--body-bg-color);
   padding: 0.25rem;
+  font-size: 18px;
   cursor: pointer;
 }
 
 .logo-wrapper {
   padding-bottom: 1rem;
-  margin-bottom: 1rem;
+
+  a {
+    border-bottom: none;
+    height: 100%;
+  }
+
+  img {
+    width: 60px;
+  }
 }
 
 .navbar-item {
@@ -130,18 +158,13 @@ const toggleSidebar = () => {
   line-height: 30px;
   color: var(--primary-font-color);
   text-decoration: none;
+  border: none;
   text-transform: uppercase;
 
   .menu-icon {
     height: 24px;
     width: 24px;
     padding-right: 0.8rem;
-  }
-}
-
-.logo-wrapper {
-  img {
-    width: 60px;
   }
 }
 
@@ -154,11 +177,22 @@ const toggleSidebar = () => {
     }
   }
 
+  .sidebar-slider-button {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
   .logo-wrapper {
     text-align: center;
 
     img {
-      width: 45px;
+      width: 40px;
+    }
+
+    @media screen and (max-width: 430px) {
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.25rem;
     }
   }
 

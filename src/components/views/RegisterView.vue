@@ -1,11 +1,11 @@
 <template>
 <div class="container is-max-desktop form-container">
-  <h2 class="form-title">Register</h2>
-  <form id="registrationForm">
+  <h3 class="form-title">Register</h3>
+  <form id="registrationForm" @submit.prevent="registerUser(formValues)">
     <base-input
       input-id="unsernameInput"
       label="Username"
-      v-model="formValues.userName"
+      v-model="formValues.username"
     />
     <base-input
       input-id="emailInput"
@@ -23,44 +23,74 @@
       input-id="reEnterPasswordInput"
       label="Confirm Password"
       input-type="password"
-      v-model="formValues.reEnterPassword"
+      v-model="formValues.passwordConfirmation"
     />
     <button class="button is-primary">Register</button>
-    <p>Already have an account? <a href="/login">Login</a></p>
   </form>
+  <p class="login-statement">Already have an account? <a href="/login">Login</a></p>
+
+  <pre>{{ formValues }}</pre>
 </div>
 
 </template>
 
 <script setup lang="ts">
-import BaseInput from '@/components/global/inputs/BaseInput.vue';
 import { reactive } from 'vue';
+import BaseInput from '@/components/global/inputs/BaseInput.vue';
+import AuthenticationService from '@/services/AuthenticationService';
+import { RegisterUser } from '@/types/RegisterUser';
 
 const formValues = reactive({
-  userName: '',
+  username: '',
   email: '',
   password: '',
-  reEnterPassword: '',
+  passwordConfirmation: '',
 });
+
+const registerUser = async (payload: RegisterUser) => {
+  const apiPayload = {
+    name: payload.username,
+    email: payload.email,
+    password: payload.password,
+    password_confirmation: payload.passwordConfirmation,
+  };
+
+  const response = await AuthenticationService.registerUser(apiPayload);
+
+  return response;
+};
 
 </script>
 
 <style scoped lang="scss">
-body {
-  background-color: #a9a8a8;
-  color: red;
-
-}
 
 .form-title {
   margin-bottom: 1.6rem;
 }
 
 .form-container {
-  padding: 1rem 1.6rem 3rem;
+  padding: 1rem 1rem 3rem;
   margin-top: 60px;
-  max-width: 420px;
-  border-top: 0.5rem solid #5c5c5c;
+  max-width: 540px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 420px;
+  }
+}
+
+h3 {
+  border-bottom: 0.5rem solid var(--primary-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+}
+
+form {
+  margin-bottom: 1rem;
+}
+
+.login-statement,
+.login-statement a {
+  font-size: 0.8rem;
 }
 
 </style>

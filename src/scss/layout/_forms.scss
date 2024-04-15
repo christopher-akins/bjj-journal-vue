@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+label {
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+fieldset {
+  margin-bottom: 0;
+}
+
+form button {
+  background-color: $primary-dark;
+  color: $primary-light;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+  transform: background-color 0.4s ease-out;
+
+  &:hover {
+    background-color: lighten($primary-dark, 16%);
+  }
+}
