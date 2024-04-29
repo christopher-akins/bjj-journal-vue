@@ -25,17 +25,15 @@
       input-type="password"
       v-model="formValues.passwordConfirmation"
     />
-    <button class="button is-primary">Register</button>
+    <button class="button is-primary register-button">Register</button>
   </form>
   <p class="login-statement">Already have an account? <a href="/login">Login</a></p>
-
-  <pre>{{ formValues }}</pre>
 </div>
 
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
 import BaseInput from '@/components/global/inputs/BaseInput.vue';
 import AuthenticationService from '@/services/AuthenticationService';
 import { RegisterUser } from '@/types/RegisterUser';
@@ -45,6 +43,10 @@ const formValues = reactive({
   email: '',
   password: '',
   passwordConfirmation: '',
+});
+
+onMounted(() => {
+  AuthenticationService.getCsrfToken();
 });
 
 const registerUser = async (payload: RegisterUser) => {
@@ -86,6 +88,10 @@ h3 {
 
 form {
   margin-bottom: 1rem;
+}
+
+.register-button {
+  margin-top: 0.75rem;
 }
 
 .login-statement,

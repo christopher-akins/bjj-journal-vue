@@ -28,6 +28,7 @@ export default {
 
   async getCsrfToken() {
     const response = await axiosClient.get('/sanctum/csrf-cookie');
+    console.log('🚀 ~ file: AuthenticationService.ts:31 ~ getCsrfToken ~ response:', response);
 
     return response;
   },
