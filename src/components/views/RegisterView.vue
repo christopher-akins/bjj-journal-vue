@@ -1,5 +1,5 @@
 <template>
-<div class="container is-max-desktop form-container">
+<div class="container form-container form-auth">
   <h3 class="form-title">Register</h3>
   <form id="registrationForm" @submit.prevent="registerUser(formValues)">
     <base-input
@@ -25,7 +25,7 @@
       input-type="password"
       v-model="formValues.passwordConfirmation"
     />
-    <button class="button is-primary register-button">Register</button>
+    <button class="button is-primary">Register</button>
   </form>
   <p class="login-statement">Already have an account? <a href="/login">Login</a></p>
 </div>
@@ -65,34 +65,6 @@ const registerUser = async (payload: RegisterUser) => {
 </script>
 
 <style scoped lang="scss">
-
-.form-title {
-  margin-bottom: 1.6rem;
-}
-
-.form-container {
-  padding: 1rem 1rem 3rem;
-  margin-top: 60px;
-  max-width: 540px;
-
-  @media screen and (max-width: 768px) {
-    max-width: 420px;
-  }
-}
-
-h3 {
-  border-bottom: 0.5rem solid var(--primary-dark);
-  margin-bottom: 1rem;
-  padding-bottom: 0.4rem;
-}
-
-form {
-  margin-bottom: 1rem;
-}
-
-.register-button {
-  margin-top: 0.75rem;
-}
 
 .login-statement,
 .login-statement a {

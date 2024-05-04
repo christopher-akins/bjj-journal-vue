@@ -110,19 +110,6 @@ const toggleSidebar = () => {
   border-right: 5px solid var(--primary-dark);
   margin-right: 1rem;
   transition: all 0.25s ease-in;
-
-  &.collapsed {
-    width: 80px;
-    padding: 1rem 0.5rem;
-    background-color: var(--body-bg-color-dark);
-
-    @media screen and (max-width: 430px) {
-      width: 60px;
-      padding: 0.75rem 0.25rem;
-      border-right: none;
-      margin-right: 0.25rem;
-    }
-  }
 }
 
 .sidebar-slider-button {
@@ -130,7 +117,7 @@ const toggleSidebar = () => {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 95px;
+  top: 125px;
   right: -19px;
   width: 33px;
   height: 33px;
@@ -144,6 +131,7 @@ const toggleSidebar = () => {
 
 .logo-wrapper {
   padding-bottom: 1rem;
+  height: 120px;
 
   a {
     border-bottom: none;
@@ -174,6 +162,18 @@ const toggleSidebar = () => {
 }
 
 .sidebar-container.collapsed {
+
+  width: 95px;
+  padding: 1rem 0.5rem;
+  background-color: var(--body-bg-color-dark);
+
+  @media screen and (max-width: 430px) {
+    width: 60px;
+    padding: 0.75rem 0.25rem;
+    border-right: none;
+    margin-right: 0.25rem;
+  }
+
   .navbar-item {
     color: var(--primary-light);
 
@@ -190,15 +190,6 @@ const toggleSidebar = () => {
 
   .logo-wrapper {
     text-align: center;
-
-    img {
-      width: 40px;
-    }
-
-    @media screen and (max-width: 430px) {
-      padding-bottom: 0.25rem;
-      margin-bottom: 0.25rem;
-    }
   }
 
   .nav-links-wrapper,
@@ -221,6 +212,6 @@ const toggleSidebar = () => {
 }
 
 .link-text-enter-active {
-  transition: opacity 0.6s;
+  transition: opacity 1s;
 }
 </style>

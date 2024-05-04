@@ -24,3 +24,29 @@ form button {
     background-color: lighten($primary-dark, 16%);
   }
 }
+
+
+.form-container.form-auth {
+  padding: 1rem 1rem 3rem;
+  margin-top: 60px;
+  max-width: 540px;
+  
+  @media screen and (max-width: 768px) {
+    max-width: 420px;
+  }
+
+  .form-title {
+    border-bottom: 0.5rem solid var(--primary-dark);
+    margin-bottom: 1.6rem;
+    padding-bottom: 0.4rem;
+  }
+
+  form {
+    margin-bottom: 1rem;
+  }
+
+  button {
+    margin-top: 0.75rem;
+  }
+}
+

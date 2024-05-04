@@ -1,6 +1,6 @@
 <template>
 <footer class="footer">
-  <div class="content has-text-centered">Brazilian Jiu-Jitsu Journal</div>
+  <div class="content">Brazilian Jiu-Jitsu Journal</div>
 </footer>
 </template>
 

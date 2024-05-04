@@ -1,21 +1,41 @@
 <template>
-  <h1>Login</h1>
-{{ test }}
-  <label for="username">Username</label>
-  <input type="text" name="username" id="username">
-
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password">
+  <div class="container form-container form-auth">
+    <h3 class="form-title">Login</h3>
+    <form>
+      <base-input
+        v-model="formValues.email"
+        label="Email"
+        type="email"
+        placeholder="Enter your email"
+      />
+      <base-input
+        v-model="formValues.password"
+        label="Password"
+        type="password"
+        placeholder="Enter your password"
+      />
+      <button class="button is-primary">Login</button>
+    </form>
+  </div>
 
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { reactive, onMounted } from 'vue';
+import BaseInput from '@/components/global/inputs/BaseInput.vue';
 import AuthenticationService from '@/services/AuthenticationService';
+
+const formValues = reactive({
+  email: '',
+  password: '',
+});
 
 onMounted(() => {
   AuthenticationService.getCsrfToken();
 });
 
-const test = import.meta.env.BASE_URL;
 </script>
+
+<style scoped lang="scss">
+
+</style>
