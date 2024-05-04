@@ -1,40 +1,44 @@
 <template>
-  <div
-    class="sidebar-container"
-    :class="!isSidebarExpanded ? 'collapsed' : ''"
-  >
-    <div class="logo-wrapper">
-      <router-link to="/">
-        <img :src="svgSrcValue" />
-      </router-link>
-    </div>
-
-    <div class="nav-links-wrapper">
-      <router-link
-        v-for="link in sidebarLinks"
-        :to="{ name: link.toName }"
-        :key="link.toName"
-        class="navbar-item"
-      >
-        <FontAwesomeIcon :icon=link.icon class="menu-icon" />
-        <span v-if="isSidebarExpanded">{{ link.title }}</span>
-      </router-link>
-    </div>
-
-    <div class="profile-links-wrapper">
-      <router-link :to="{ name: 'profile', params: { username: 'cakins' } }" class="navbar-item">
-        <FontAwesomeIcon :icon=faUser class="menu-icon" />
-        <span v-if="isSidebarExpanded">Profile</span>
-      </router-link>
-    </div>
-
     <div
-      class="sidebar-slider-button"
-      @click="toggleSidebar"
+      class="sidebar-container"
+      :class="!isSidebarExpanded ? 'collapsed' : ''"
     >
-      <FontAwesomeIcon :icon="isSidebarExpanded ? faChevronLeft : faChevronRight" />
+      <div class="logo-wrapper">
+        <router-link to="/">
+          <img :src="svgSrcValue" />
+        </router-link>
+      </div>
+
+      <div class="nav-links-wrapper">
+        <router-link
+          v-for="link in sidebarLinks"
+          :to="{ name: link.toName }"
+          :key="link.toName"
+          class="navbar-item"
+        >
+          <FontAwesomeIcon :icon=link.icon class="menu-icon" />
+          <Transition name="link-text">
+            <span v-if="isSidebarExpanded">{{ link.title }}</span>
+          </Transition>
+        </router-link>
+      </div>
+
+      <div class="profile-links-wrapper">
+        <router-link :to="{ name: 'profile', params: { username: 'cakins' } }" class="navbar-item">
+          <FontAwesomeIcon :icon=faUser class="menu-icon" />
+          <Transition name="link-text">
+            <span v-if="isSidebarExpanded">Profile</span>
+          </Transition>
+        </router-link>
+      </div>
+
+      <div
+        class="sidebar-slider-button"
+        @click="toggleSidebar"
+      >
+        <FontAwesomeIcon :icon="isSidebarExpanded ? faChevronLeft : faChevronRight" />
+      </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -42,9 +46,9 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faUser,
+  faClockRotateLeft,
   faChartPie,
   faPencil,
-  faPersonRunning,
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
@@ -57,7 +61,7 @@ const sidebarLinks = [
   },
   {
     toName: 'Training',
-    icon: faPersonRunning,
+    icon: faClockRotateLeft,
     title: 'Past Training',
   },
   {
@@ -96,6 +100,7 @@ const toggleSidebar = () => {
 </script>
 
 <style scoped lang="scss">
+
 .sidebar-container {
   position: relative;
   width: 280px;
@@ -125,8 +130,8 @@ const toggleSidebar = () => {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 90px;
-  right: -20px;
+  top: 95px;
+  right: -19px;
   width: 33px;
   height: 33px;
   border: 5px solid var(--primary-dark);
@@ -203,5 +208,19 @@ const toggleSidebar = () => {
     align-items: center;
     overflow: hidden;
   }
+}
+
+.link-text-enter-from,
+.link-text-leave-to {
+  opacity: 0;
+}
+
+.link-text-enter-to,
+.link-text-leave-from {
+  opacity: 1;
+}
+
+.link-text-enter-active {
+  transition: opacity 0.6s;
 }
 </style>
