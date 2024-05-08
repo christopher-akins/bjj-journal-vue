@@ -24,10 +24,22 @@
       </div>
 
       <div class="profile-links-wrapper">
-        <router-link :to="{ name: 'profile', params: { username: 'cakins' } }" class="navbar-item">
+        <router-link
+          :to="{ name: 'Profile', params: { username: 'cakins' } }"
+          class="navbar-item"
+        >
           <FontAwesomeIcon :icon=faUser class="menu-icon" />
           <Transition name="link-text">
             <span v-if="isSidebarExpanded">Profile</span>
+          </Transition>
+        </router-link>
+        <router-link
+          :to="{ name: 'Logout' }"
+          class="navbar-item"
+        >
+          <FontAwesomeIcon :icon=faRightFromBracket class="menu-icon" />
+          <Transition name="link-text">
+            <span v-if="isSidebarExpanded">Logout</span>
           </Transition>
         </router-link>
       </div>
@@ -51,6 +63,7 @@ import {
   faPencil,
   faChevronLeft,
   faChevronRight,
+  faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
 const sidebarLinks = [
@@ -65,7 +78,7 @@ const sidebarLinks = [
     title: 'Past Training',
   },
   {
-    toName: 'dashboard',
+    toName: 'Dashboard',
     icon: faChartPie,
     title: 'Dashboard',
   },

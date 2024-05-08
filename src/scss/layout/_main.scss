@@ -16,8 +16,11 @@ body,
 
   // See any .sidebar-container styles in respective SFC
 
-  .main-wrapper {
+  .main-content {
     flex: 1;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
   }
 }
 

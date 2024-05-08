@@ -7,6 +7,11 @@ type ApiRegisterUser = {
   password_confirmation: string,
 };
 
+type ApiLoginUser = {
+  email: string,
+  password: string,
+};
+
 const axiosClient = axios.create({
   baseURL: import.meta.env.VITE_BASE_API_URL as string,
   headers: {
@@ -20,12 +25,6 @@ const axiosClient = axios.create({
 });
 
 export default {
-  async registerUser(payload: ApiRegisterUser) {
-    const response = await axiosClient.post('/register', payload);
-
-    return response;
-  },
-
   async getCsrfToken() {
     const response = await axiosClient.get('/sanctum/csrf-cookie');
     console.log('🚀 ~ file: AuthenticationService.ts:31 ~ getCsrfToken ~ response:', response);
@@ -33,4 +32,21 @@ export default {
     return response;
   },
 
+  async registerUser(payload: ApiRegisterUser) {
+    const response = await axiosClient.post('/register', payload);
+
+    return response;
+  },
+
+  async loginUser(payload: ApiLoginUser) {
+    const response = await axiosClient.post('/login', payload);
+
+    return response;
+  },
+
+  async logoutUser() {
+    const response = await axiosClient.post('/logout');
+
+    return response;
+  },
 };

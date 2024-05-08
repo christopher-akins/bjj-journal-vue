@@ -33,9 +33,11 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted } from 'vue';
+import { reactive } from 'vue';
 import BaseInput from '@/components/global/inputs/BaseInput.vue';
+
 import AuthenticationService from '@/services/AuthenticationService';
+
 import { RegisterUser } from '@/types/RegisterUser';
 
 const formValues = reactive({
@@ -43,10 +45,6 @@ const formValues = reactive({
   email: '',
   password: '',
   passwordConfirmation: '',
-});
-
-onMounted(() => {
-  AuthenticationService.getCsrfToken();
 });
 
 const registerUser = async (payload: RegisterUser) => {

@@ -1,38 +1,56 @@
 <template>
   <div class="container form-container form-auth">
     <h3 class="form-title">Login</h3>
-    <form>
+    <form @submit.prevent="loginUser(formValues)">
       <base-input
         v-model="formValues.email"
+        input-id="emailLoginInput"
         label="Email"
-        type="email"
+        input-type="email"
         placeholder="Enter your email"
       />
       <base-input
         v-model="formValues.password"
+        input-id="passwordLoginInput"
         label="Password"
-        type="password"
+        input-type="password"
         placeholder="Enter your password"
       />
-      <button class="button is-primary">Login</button>
+      <div v-if="!isLoggingIn">
+        <button class="button is-primary">Login</button>
+      </div>
     </form>
   </div>
 
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted } from 'vue';
+import { ref, reactive } from 'vue';
+import router from '@/router';
+
 import BaseInput from '@/components/global/inputs/BaseInput.vue';
 import AuthenticationService from '@/services/AuthenticationService';
+
+const isLoggingIn = ref(false);
 
 const formValues = reactive({
   email: '',
   password: '',
 });
 
-onMounted(() => {
-  AuthenticationService.getCsrfToken();
-});
+const loginUser = async (values: { email: string, password: string }) => {
+  isLoggingIn.value = true;
+  const response = await AuthenticationService.loginUser(values);
+  console.log('🚀 ~ file: LoginView.vue:42 ~ loginUser ~ response:', response);
+
+  if (response.status === 200) {
+    router.push({ name: 'TrainingNew' });
+  }
+  else {
+    console.error('Login failed');
+  }
+  isLoggingIn.value = false;
+};
 
 </script>
 

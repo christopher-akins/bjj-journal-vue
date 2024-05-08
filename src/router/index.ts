@@ -9,18 +9,19 @@ import TrainingSingle from '@/components/views/TrainingSingle.vue';
 import ProfileView from '@/components/views/ProfileView.vue';
 import RegisterView from '@/components/views/RegisterView.vue';
 import LoginView from '@/components/views/LoginView.vue';
+import LogoutView from '@/components/views/LogoutView.vue';
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: HomeView,
     },
     {
       path: '/register',
-      name: 'register',
+      name: 'Register',
       component: RegisterView,
       meta: {
         hideHeader: true,
@@ -28,20 +29,28 @@ const router = createRouter({
     },
     {
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: LoginView,
       meta: {
         hideHeader: true,
       },
     },
     {
+      path: '/logout',
+      name: 'Logout',
+      component: LogoutView,
+      meta: {
+        hideHeader: true,
+      },
+    },
+    {
       path: '/profile/:username',
-      name: 'profile',
+      name: 'Profile',
       component: ProfileView,
     },
     {
       path: '/dashboard',
-      name: 'dashboard',
+      name: 'Dashboard',
       component: DashboardView,
     },
     {
