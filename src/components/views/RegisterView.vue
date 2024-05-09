@@ -27,7 +27,7 @@
     />
     <button class="button is-primary">Register</button>
   </form>
-  <p class="login-statement">Already have an account? <a href="/login">Login</a></p>
+  <p class="login-statement">Already have an account? <router-link :to="{ name: 'Login' }">Login</router-link></p>
 </div>
 
 </template>

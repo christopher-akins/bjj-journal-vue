@@ -9,12 +9,15 @@
     </label>
 
     <input
+      class="input"
+      :class="hasErrorClass"
       :placeholder="label"
       :type="inputType"
-      class="input"
       :id="inputId"
       :value="modelValue"
+      v-bind="$attrs"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      @focus="$emit('focus', $event.target)"
     />
   </fieldset>
 </template>
@@ -41,15 +44,34 @@ export default {
       type: String,
       default: 'text',
     },
+
+    error: {
+      type: Boolean,
+      default: false,
+    },
   },
 
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'focus'],
 
+  computed: {
+    hasErrorClass(): string {
+      if (this.error) {
+        return 'has-error';
+      }
+
+      return '';
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
   input::placeholder {
     opacity: 0.5;
+  }
+
+  .has-error {
+    border-color: red;
+    box-shadow: none;
   }
 </style>

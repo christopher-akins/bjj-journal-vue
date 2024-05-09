@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosClient from '@/services/CreateAxiosClient';
 
 type ApiRegisterUser = {
   name: string,
@@ -12,22 +12,9 @@ type ApiLoginUser = {
   password: string,
 };
 
-const axiosClient = axios.create({
-  baseURL: import.meta.env.VITE_BASE_API_URL as string,
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'X-Requested-With': 'XMLHttpRequest',
-  },
-  withXSRFToken: true,
-  withCredentials: true,
-
-});
-
 export default {
   async getCsrfToken() {
     const response = await axiosClient.get('/sanctum/csrf-cookie');
-    console.log('🚀 ~ file: AuthenticationService.ts:31 ~ getCsrfToken ~ response:', response);
 
     return response;
   },
@@ -39,9 +26,16 @@ export default {
   },
 
   async loginUser(payload: ApiLoginUser) {
-    const response = await axiosClient.post('/login', payload);
+    try {
+      const response = await axiosClient.post('/login', payload);
 
-    return response;
+      return response;
+    }
+    catch (error) {
+      console.log('🚀 ~ file: AuthenticationService.ts:43 ~ loginUser ~ error:', error);
+
+      return error;
+    }
   },
 
   async logoutUser() {

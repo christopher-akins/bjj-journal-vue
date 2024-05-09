@@ -10,6 +10,10 @@ $primary-font-color: $primary-dark;
 $banner-height: 175px;
 $banner-width: 100%;
 
+// Footer Variables
+$footer-bg-color: transparent;
+$footer-font-color: $primary-dark;
+
 :root {
   --primary-dark: #{$primary-dark};
   --primary-light: #{$primary-light};

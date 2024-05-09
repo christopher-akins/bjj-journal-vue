@@ -10,3 +10,8 @@ export interface User {
   beltRank: BeltRank,
   stripeCount: number,
 }
+
+// export interface UserWithToken {
+//   user: User,
+//   token: string,
+// }

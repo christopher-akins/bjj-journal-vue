@@ -10,6 +10,7 @@ import ProfileView from '@/components/views/ProfileView.vue';
 import RegisterView from '@/components/views/RegisterView.vue';
 import LoginView from '@/components/views/LoginView.vue';
 import LogoutView from '@/components/views/LogoutView.vue';
+import PrivacyView from '@/components/views/PrivacyView.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -44,7 +45,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/profile/:username',
+      path: '/profile',
       name: 'Profile',
       component: ProfileView,
     },
@@ -68,6 +69,11 @@ const router = createRouter({
       path: '/training/new',
       name: 'TrainingNew',
       component: TrainingNew,
+    },
+    {
+      path: '/privacy',
+      name: 'Privacy',
+      component: PrivacyView,
     },
   ] as Route[],
   linkActiveClass: 'active-link',

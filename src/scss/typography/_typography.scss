@@ -50,6 +50,7 @@ a {
 
   &:hover {
     color: lighten($blue-belt, 16%);
+    border-color: lighten($blue-belt, 16%);
   }
 }
 
