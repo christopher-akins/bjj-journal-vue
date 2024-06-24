@@ -25,7 +25,7 @@
 
       <div class="profile-links-wrapper">
         <router-link
-          :to="{ name: 'Profile', params: { username: 'cakins' } }"
+          :to="{ name: 'Profile' }"
           class="navbar-item"
         >
           <FontAwesomeIcon :icon=faUser class="menu-icon" />

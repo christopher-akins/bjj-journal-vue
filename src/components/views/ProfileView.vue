@@ -1,16 +1,22 @@
 <template>
   <div>
     <h1>Profile</h1>
+    <pre>{{ user }}</pre>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import UserService from '@/services/UserService';
 
-onMounted(() => {
-  const user = UserService.getLoggedInUser();
-  console.log('🚀 ~ file: ProfileView.vue:11 ~ user:', user);
-});
+const user = ref({});
 
+const getUser = async () => {
+  const { data } = await UserService.getLoggedInUser();
+  user.value = data;
+};
+
+onMounted(() => {
+  getUser();
+});
 </script>
