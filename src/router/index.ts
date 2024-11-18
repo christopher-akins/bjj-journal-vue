@@ -2,15 +2,6 @@ import { Component } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 import HomeView from '@/components/views/HomeView.vue';
-import DashboardView from '@/components/views/DashboardView.vue';
-import TrainingJournal from '@/components/views/TrainingJournal.vue';
-import TrainingNew from '@/components/views/TrainingNew.vue';
-import TrainingSingle from '@/components/views/TrainingSingle.vue';
-import ProfileView from '@/components/views/ProfileView.vue';
-import RegisterView from '@/components/views/RegisterView.vue';
-import LoginView from '@/components/views/LoginView.vue';
-import LogoutView from '@/components/views/LogoutView.vue';
-import PrivacyView from '@/components/views/PrivacyView.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -23,7 +14,7 @@ const router = createRouter({
     {
       path: '/register',
       name: 'Register',
-      component: RegisterView,
+      component: () => import('@/components/views/RegisterView.vue'),
       meta: {
         hideHeader: true,
       },
