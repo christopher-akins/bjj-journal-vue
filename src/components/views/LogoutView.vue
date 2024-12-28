@@ -9,6 +9,6 @@ import AuthenticationService from '@/services/AuthenticationService';
 
 onMounted(async () => {
   await AuthenticationService.logoutUser();
-  router.push({ name: 'Login' });
+  router.push({ name: 'Login', replace: true });
 });
 </script>

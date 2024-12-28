@@ -1,4 +1,5 @@
 import axiosClient from '@/services/CreateAxiosClient';
+import { AxiosResponse } from 'axios';
 
 type ApiRegisterUser = {
   name: string,
@@ -25,17 +26,10 @@ export default {
     return response;
   },
 
-  async loginUser(payload: ApiLoginUser) {
-    try {
-      const response = await axiosClient.post('/login', payload);
+  async loginUser(payload: ApiLoginUser): Promise<AxiosResponse> {
+    const response = await axiosClient.post('/login', payload);
 
-      return response;
-    }
-    catch (error) {
-      console.log('🚀 ~ file: AuthenticationService.ts:43 ~ loginUser ~ error:', error);
-
-      return error;
-    }
+    return response;
   },
 
   async logoutUser() {

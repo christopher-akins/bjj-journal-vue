@@ -7,7 +7,7 @@
     >
       {{ errorMessage }}
     </div>
-    <form @submit.prevent="loginUser(formValues)">
+    <form @submit.prevent="handleLogin(formValues)">
       <base-input
         v-model="formValues.email"
         input-id="emailLoginInput"
@@ -37,10 +37,14 @@
 
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue';
-import router from '@/router';
+import { AxiosError } from 'axios';
 
 import BaseInput from '@/components/global/inputs/BaseInput.vue';
-import AuthenticationService from '@/services/AuthenticationService';
+import { useAuth } from '@/composables/useAuth';
+
+interface ErrorResponse {
+  message: string;
+}
 
 const isLoggingIn = ref(false);
 
@@ -54,21 +58,28 @@ const error = ref({
   status: '',
 });
 
+const { loginUser } = useAuth();
+
 const hasError = computed(() => error.value.message !== '');
 const errorMessage = computed(() => error.value.message + ' Please try again.');
 
-const loginUser = async (values: { email: string, password: string }) => {
+const handleLogin = async (values: { email: string, password: string}) => {
   isLoggingIn.value = true;
-  const response = await AuthenticationService.loginUser(values);
-
-  if (response.status === 200) {
-    router.push({ name: 'Profile' });
+  try {
+    await loginUser(values);
   }
-  else {
-    error.value.message = response.response.data.message;
+  catch (err) {
+    const axiosError = err as AxiosError<ErrorResponse>;
+    if (axiosError.response && axiosError.response.data) {
+      error.value.message = axiosError.response.data.message;
+    }
+    else {
+      error.value.message = 'An error occurred. Please try again.';
+    }
   }
-
-  isLoggingIn.value = false;
+  finally {
+    isLoggingIn.value = false;
+  }
 };
 
 const handleFocus = () => {
@@ -78,6 +89,7 @@ const handleFocus = () => {
 const clearError = () => {
   if (error.value.message === '') return;
   error.value.message = '';
+  isLoggingIn.value = false;
 };
 
 </script>

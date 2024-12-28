@@ -20,7 +20,8 @@
     "parser": "@typescript-eslint/parser"
   },
   "rules": {
-    "vue/no-use-v-if-with-v-for": "warn"
+    "vue/no-use-v-if-with-v-for": "warn",
+    "require-jsdoc": "off"
   },
   "overrides": [
     {
